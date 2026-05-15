@@ -1,0 +1,25 @@
+{
+  "name": "traffic-platform",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@amap/amap-jsapi-loader": "^1.0.1",
+    "axios": "^1.8.1",
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "openai": "^6.37.0",
+    "papaparse": "^5.5.3",
+    "vue": "^3.5.13",
+    "vue-router": "^5.0.6"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.1",
+    "vite": "^6.2.0"
+  }
+}

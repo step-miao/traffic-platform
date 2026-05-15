@@ -1,0 +1,50 @@
+import express from 'express'
+import cors from 'cors'
+import OpenAI from 'openai'
+
+const app = express()
+
+app.use(cors())
+app.use(express.json())
+
+const client = new OpenAI({
+  apiKey: 'sk-blejiwhrmisynobzwhspbclihuuafchzdleevccqtuxtvaoc',
+  baseURL: 'https://api.siliconflow.cn/v1'
+})
+
+app.post('/api/travel-ai', async (req, res) => {
+  try {
+    const { message, currentSpot = '未指定景点' } = req.body
+
+    const completion = await client.chat.completions.create({
+      model: 'deepseek-ai/DeepSeek-V3',
+      messages: [
+        {
+          role: 'system',
+          content: `你叫原子旅行家，是四川旅游规划助手。`
+        },
+        {
+          role: 'user',
+          content: `
+当前用户正在浏览景点：${currentSpot}
+
+用户问题：${message}
+          `
+        }
+      ]
+    })
+
+    res.json({
+      reply: completion.choices[0].message.content
+    })
+  } catch (error) {
+    console.log(error)
+    res.status(500).json({
+      reply: '原子旅行家远去了，暂时不在。'
+    })
+  }
+})
+
+app.listen(3001, () => {
+  console.log('AI server running: http://localhost:3001')
+})
