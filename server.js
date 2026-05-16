@@ -45,6 +45,8 @@ app.post('/api/travel-ai', async (req, res) => {
   }
 })
 
-app.listen(3001, () => {
-  console.log('AI server running: http://localhost:3001')
+const PORT = process.env.PORT || 3001
+
+app.listen(PORT, () => {
+  console.log(`AI server running on port ${PORT}`)
 })
