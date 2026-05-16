@@ -169,6 +169,7 @@
     <div class="right-map">
       <div id="recover-map"></div>
     </div>
+     </div>
 </template>
 
 <script setup>
