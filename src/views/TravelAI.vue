@@ -23,24 +23,24 @@ async function sendMessage() {
 
   userInput.value = ''
 
-  try {
-    const res = await fetch('http://localhost:3001/api/travel-ai', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        message: text
-      })
+try {
+  const res = await fetch('/api/travel-ai', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      message: text
     })
+  })
 
-    const data = await res.json()
+  const data = await res.json()
 
-    messages.value.push({
-      role: 'ai',
-      content: data.reply
-    })
-  } catch (err) {
+  messages.value.push({
+    role: 'ai',
+    content: data.reply
+  })
+} catch (err) {
     messages.value.push({
       role: 'ai',
       content: '旅行家暂时离线了，请稍后再试。'
