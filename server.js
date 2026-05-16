@@ -5,25 +5,23 @@ import OpenAI from 'openai'
 import path from 'path'
 import { fileURLToPath } from 'url'
 
+const app = express()
+
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
-
-app.use(express.static(path.join(__dirname, 'dist')))
-
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist/index.html'))
-})
-
-const app = express()
 
 app.use(cors())
 app.use(express.json())
 
+// 前端静态文件
+app.use(express.static(path.join(__dirname, '../dist')))
+
 const client = new OpenAI({
-  apiKey: 'sk-blejiwhrmisynobzwhspbclihuuafchzdleevccqtuxtvaoc',
+  apiKey: '你的apikey',
   baseURL: 'https://api.siliconflow.cn/v1'
 })
 
+// AI接口
 app.post('/api/travel-ai', async (req, res) => {
   try {
     const { message, currentSpot = '未指定景点' } = req.body
@@ -33,7 +31,7 @@ app.post('/api/travel-ai', async (req, res) => {
       messages: [
         {
           role: 'system',
-          content: `你叫原子旅行家，是四川旅游规划助手。`
+          content: '你叫原子旅行家，是四川旅游规划助手。'
         },
         {
           role: 'user',
@@ -51,14 +49,20 @@ app.post('/api/travel-ai', async (req, res) => {
     })
   } catch (error) {
     console.log(error)
+
     res.status(500).json({
       reply: '原子旅行家远去了，暂时不在。'
     })
   }
 })
 
-const PORT = process.env.PORT || 3001
+// 前端路由
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../dist/index.html'))
+})
+
+const PORT = process.env.PORT || 10000
 
 app.listen(PORT, '0.0.0.0', () => {
-  console.log(`Server running on port ${PORT}`)
+  console.log(`AI server running on port ${PORT}`)
 })
