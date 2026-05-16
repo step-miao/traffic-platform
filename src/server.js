@@ -17,7 +17,7 @@ app.use(express.json())
 app.use(express.static(path.join(__dirname, '../dist')))
 
 const client = new OpenAI({
-  apiKey: '你的apikey',
+  apiKey: process.env.SILICONFLOW_API_KEY,
   baseURL: 'https://api.siliconflow.cn/v1'
 })
 
