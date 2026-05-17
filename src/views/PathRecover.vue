@@ -162,13 +162,14 @@
         0 表示接近匀速，
         1 表示速度变化非常剧烈。
       </p>
-    </div>
       </div>
     </div>
 
     <div class="right-map">
       <div id="recover-map"></div>
     </div>
+
+  </div>
 </template>
 
 <script setup>
