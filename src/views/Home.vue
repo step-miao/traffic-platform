@@ -1,5 +1,8 @@
 <template>
   <div class="home">
+    <router-link to="/mode-select" class="back-btn">
+  ← 返回模式选择
+</router-link>
     <h1>交通数据分析平台</h1>
 
     <div class="card-container">
@@ -59,5 +62,38 @@ h1 {
 
 .link {
   text-decoration: none;
+}
+.back-btn {
+  position: fixed;
+  top: 24px;
+  left: 24px;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 12px 18px;
+
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: white;
+
+  border-radius: 14px;
+
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.25);
+
+  transition: all 0.25s ease;
+
+  z-index: 1000;
+}
+
+.back-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(37, 99, 235, 0.35);
+
+  background: linear-gradient(135deg, #1d4ed8, #1e40af);
 }
 </style>

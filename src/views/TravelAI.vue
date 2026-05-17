@@ -56,7 +56,11 @@ try {
         <h1>原子旅行家</h1>
         <p>AI 智能旅游助手</p>
       </div>
-
+      <div class="header-right">
+  <router-link to="/travel" class="back-btn">
+     返回旅游首页
+  </router-link>
+  </div>
       <div class="ai-avatar">
         🎒
       </div>
@@ -227,5 +231,49 @@ try {
   font-weight: 700;
 
   cursor: pointer;
+}
+.back-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 180px;
+  height: 58px;
+
+  border-radius: 999px;
+
+  background: linear-gradient(
+    135deg,
+    #27c2ff 0%,
+    #2d8fff 100%
+  );
+
+  color: white;
+
+  text-decoration: none;
+
+  font-size: 18px;
+  font-weight: 700;
+
+  box-shadow:
+    0 7px 17.5px rgba(45,143,255,0.28);
+
+  transition: all 0.25s ease;
+}
+
+.back-btn:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 14px 30px rgba(45,143,255,0.38);
+}
+
+.back-btn:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 14px 30px rgba(45,143,255,0.38);
+
+  opacity: 0.92;
 }
 </style>
