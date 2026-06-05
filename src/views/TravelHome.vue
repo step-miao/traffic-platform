@@ -93,7 +93,11 @@ function goAITravel() {
 <style scoped>
 .travel-home {
   min-height: 100vh;
-  background: #f5f7fb;
+    background-image: url('../assets/travel.jpg'); /* 替换为你图片的实际文件名 */
+    background-size: cover;          /* 图片铺满整个容器 */
+    background-position: center;     /* 居中显示 */
+    background-repeat: no-repeat;    /* 不重复 */
+    background-attachment: fixed;    /* 滚动时固定背景 */
   padding: 60px;
 }
 

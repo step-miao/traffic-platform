@@ -2,7 +2,7 @@
   <div class="login-page">
     <div class="login-card">
       <div class="left">
-        <h1>交通数据分析平台</h1>
+        <h1>游迹空间</h1>
         <p>请输入授权密钥进入系统。付费后可获取登录密钥。</p>
 
         <input
@@ -12,6 +12,22 @@
         />
 
         <button @click="login">登录</button>
+
+        <div class="platform-intro">
+          <h3>平台功能简介</h3>
+
+          <div class="intro-item">
+            <strong>📊 学术模式：</strong>
+            获取地图数据、地点经纬度、路线详情、路径规划与轨迹恢复数据，
+            支持批量处理与数据导出。
+          </div>
+
+          <div class="intro-item">
+            <strong>🌍 旅游模式：</strong>
+            查询热门景点信息，
+            结合 AI 进行个性化旅游路线规划与行程推荐。
+          </div>
+        </div>
 
         <p v-if="errorMsg" class="error">{{ errorMsg }}</p>
       </div>
@@ -59,20 +75,35 @@ function login() {
 <style scoped>
 .login-page {
   min-height: 100vh;
-  background: linear-gradient(135deg, #e0ecff, #f5f7fb);
   display: flex;
   justify-content: center;
   align-items: center;
+
+  background-image:
+    linear-gradient(rgba(15, 23, 42, 0.35), rgba(15, 23, 42, 0.35)),
+    url('../assets/login-bg.jpg');
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .login-card {
   width: 900px;
   min-height: 520px;
-  background: white;
+
+  background: rgba(255, 255, 255, 0.55);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
   border-radius: 20px;
+
   display: grid;
   grid-template-columns: 1.2fr 1fr;
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+
   overflow: hidden;
 }
 
@@ -122,10 +153,12 @@ button:hover {
 }
 
 .right {
-  background: #f8fbff;
+  background: rgba(248, 251, 255, 0.78);
+
   padding: 50px;
   text-align: center;
-  border-left: 1px solid #e5e7eb;
+
+  border-left: 1px solid rgba(255,255,255,0.3);
 }
 
 .right h2 {

@@ -37,7 +37,13 @@ function goTravelMode() {
 <style scoped>
 .mode-page {
   min-height: 100vh;
-  background: #f5f7fb;
+
+  background-image: url('../assets/mode-bg.jpg');
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
   padding: 70px;
   text-align: center;
 }

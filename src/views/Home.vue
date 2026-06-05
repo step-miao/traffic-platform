@@ -45,6 +45,20 @@ import FunctionCard from '../components/FunctionCard.vue'
 
 <style scoped>
 .home {
+  min-height: 100vh;
+
+  background:
+    linear-gradient(
+      rgba(255,255,255,0.55),
+      rgba(255,255,255,0.55)
+    ),
+    url('../assets/academic-bg.jpg');
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
   padding: 40px;
 }
 
