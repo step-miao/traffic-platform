@@ -55,7 +55,7 @@ const router = useRouter()
 const secretKey = ref('')
 const errorMsg = ref('')
 
-const correctKey = 'Love_yourself'
+const correctKey = 'Step_miao'
 
 function login() {
   if (!secretKey.value) {
